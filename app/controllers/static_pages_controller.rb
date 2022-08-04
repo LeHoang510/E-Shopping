@@ -11,6 +11,4 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
-  def market
-  end
 end
