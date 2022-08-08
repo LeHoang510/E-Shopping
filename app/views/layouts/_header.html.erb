@@ -26,20 +26,21 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
 
-        <% if false %>
-          <li class="nav-item dropdown">
+        <% if logged_in? %>
+          <div class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href=<%= user_path(current_user)%>>Profile</a></li>
+              <li><a class="dropdown-item" href=<%= edit_user_path(current_user)%>>Edit</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><%= button_to "Log out", logout_path,method: :delete , class: "dropdown-item" %></li>
+
             </ul>
-          </li>
+          </div>
         <% else %>
-            <a class="nav-link nav-item" href="#">Login</a>
+            <a class="nav-link nav-item" href="/login">Login</a>
         <% end %>
       </div>
     </div>

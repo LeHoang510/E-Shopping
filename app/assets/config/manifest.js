@@ -3,3 +3,6 @@
 //= link_tree ../builds
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
+//= require jquery
+//= require jquery_ujs
+
