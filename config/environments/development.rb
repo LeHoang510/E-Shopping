@@ -58,7 +58,9 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-
+  host = 'localhost:3000'
+  # Local server
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
   config.sass.inline_source_maps = true
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
