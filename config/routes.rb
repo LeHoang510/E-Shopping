@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "static_pages#home"
   resources :users
+  resources :account_activations, only: [:edit]
+  resources :password_reset, only: [:new,:create,:edit,:update]
 end

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_as_user, only: [:edit,:update]
-  before_action :correct_user?, only:[:edit,:update]
+  before_action :logged_in_as_user, only: [:edit,:update,:show]
+  before_action :correct_user?, only:[:edit,:update,:show]
   def new
     @user=User.new
   end
@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     @user=User.new(user_params)
     @user.coin=0.0
     if @user.save
-      login @user
-      redirect_to user_path(@user)
+      @user.send_activation_email
+      render 'user_mailer/account_activation'
     else
       render 'new'
     end
